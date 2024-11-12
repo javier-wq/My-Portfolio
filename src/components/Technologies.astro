@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon/components";
+
+const mainTechnologies = [
+  { name: 'HTML5', icon: 'html' },
+  { name: 'CSS3', icon: 'css' },
+  { name: 'JavaScript', icon: 'javascript' },
+  { name: 'PHP', icon: 'php' },
+  { name: 'TypeScript', icon: 'typescript' },
+  { name: 'Astro', icon: 'astro' },
+  { name: 'React', icon: 'react' },
+  { name: 'Redux', icon: 'redux' },
+  { name: 'Node.js', icon: 'nodejs' },
+  { name: 'Python', icon: 'python' }
+];
+
+const otherTechnologies = [
+  { name: 'Git', icon: 'git' },
+  { name: 'GitHub', icon: 'github' },
+  { name: 'Docker', icon: 'docker' },
+  { name: 'Linux', icon: 'linux' },
+  { name: 'TailwindCSS', icon: 'tailwind' },
+  { name: 'Bootstrap', icon: 'bootstrap' },
+  { name: 'MongoDB', icon: 'mongodb' },
+  { name: 'SQL', icon: 'sql' },
+  { name: 'VSCode', icon: 'vscode' }
+];
+---
+<section id="technologies" class="py-20 bg-gray-800">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-white mb-12 text-center">Technologies</h2>
+    
+    <div class="mb-16">
+      <h3 class="text-2xl font-semibold text-white mb-8 text-center">Main Technologies</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        {mainTechnologies.map(tech => (
+          <div class="bg-gray-700 p-6 rounded-lg text-center text-white hover:bg-gray-600 transition-colors">
+            <div class="flex justify-center text-4xl mb-2"> <Icon name={tech.icon} /></div>
+            <div class="font-medium">{tech.name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div>
+      <h3 class="text-2xl font-semibold text-white mb-8 text-center">Other Technologies</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {otherTechnologies.map(tech => (
+          <div class="bg-gray-700 p-6 rounded-lg text-center text-white hover:bg-gray-600 transition-colors">
+            <div class="flex justify-center text-4xl mb-2"><Icon name={tech.icon} /></div>
+            <div class="font-medium">{tech.name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

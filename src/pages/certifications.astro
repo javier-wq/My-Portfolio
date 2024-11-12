@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const allCertifications = [
+  {
+    title: 'AWS Certified Developer',
+    image: 'https://placehold.co/300x200',
+    date: '2023',
+    description: 'Advanced certification in AWS cloud development and architecture'
+  },
+  {
+    title: 'React Advanced Certification',
+    image: 'https://placehold.co/300x200',
+    date: '2023',
+    description: 'Expert-level React development and best practices'
+  },
+  {
+    title: 'Python Professional',
+    image: 'https://placehold.co/300x200',
+    date: '2022',
+    description: 'Professional certification in Python programming'
+  },
+  {
+    title: 'MongoDB Developer',
+    image: 'https://placehold.co/300x200',
+    date: '2022',
+    description: 'Advanced database design and MongoDB development'
+  },
+  {
+    title: 'Google Cloud Architect',
+    image: 'https://placehold.co/300x200',
+    date: '2022',
+    description: 'Professional certification in Google Cloud architecture'
+  },
+  {
+    title: 'Kubernetes Administrator',
+    image: 'https://placehold.co/300x200',
+    date: '2021',
+    description: 'Expert-level Kubernetes administration and orchestration'
+  }
+];
+---
+
+<Layout title="All Certifications">
+  <main class="py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-white mb-12 text-center">All Certifications</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {allCertifications.map(cert => (
+          <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:transform hover:scale-105 transition-transform duration-300">
+            <img 
+              src={cert.image} 
+              alt={cert.title}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-white mb-2">{cert.title}</h3>
+              <p class="text-gray-400 mb-2">{cert.date}</p>
+              <p class="text-gray-300">{cert.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
