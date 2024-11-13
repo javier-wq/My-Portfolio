@@ -1,42 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from "astro-icon/components";
 
 const allCertifications = [
+{
+    title: 'Frontend Developer Practical Course',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/curso-front.png',
+    date: '2022',
+    certification: 'https://drive.google.com/file/d/1SpwSXNA3QzfcfE3ETMfX2FlgMPLrVvr2/view?usp=sharing',
+    icon:'computer'
+  },
   {
-    title: 'AWS Certified Developer',
-    image: 'https://placehold.co/300x200',
+    title: 'Git and Github professional course',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/git.png',
+    date: '2022',
+    certification: 'https://drive.google.com/file/d/1DbxIgtXnZTpxhr2SR6qkUVzaqBMb0XXk/view?usp=sharing',
+    icon:'github'
+  },
+  {
+    title: 'Docker: Fundamentals',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/docker-fundamentos.png',
+    date: '2024',
+    certification: 'https://drive.google.com/file/d/1EH2awctNCKeY9eHWlR7rbMVEc0ZitEQR/view?usp=sharing',
+    icon:'docker-white'
+  },
+  {
+    title: 'Introduction to backend development',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/backend.png',
+    date: '2024',
+    certification: 'https://drive.google.com/file/d/1MA_0n3lN26710-HivOjEaGOOvxjgLjBq/view?usp=sharing',
+    icon: 'server'
+  },
+  {
+    title: 'NPM: Package and dependency management for JavaScript',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/npm.png',
     date: '2023',
-    description: 'Advanced certification in AWS cloud development and architecture'
+    certification: 'https://drive.google.com/file/d/1VzrDHRQuqzhkeFVHxkbTjkEJaTPUjzD7/view?usp=sharing',
+    icon: 'npm'
   },
   {
-    title: 'React Advanced Certification',
-    image: 'https://placehold.co/300x200',
+    title: 'React.js Course',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/react.png',
+    date: '2024',
+    certification: 'https://drive.google.com/file/d/1Nz6IrubRipOR6EiShX2RErJhguQy_q12/view?usp=sharing',
+    icon: 'react-white'
+  },
+  {
+    title: 'React.js course with Vite.js and TailwindCSS',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/react-vite.png',
+    date: '2024',
+    certification: 'https://drive.google.com/file/d/1bTCuzA39UdyHgtVkENy0yHo7qq2LS5BU/view?usp=sharing',
+    icon: 'vite'
+  },
+  {
+    title: 'Database Fundamentals Course',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/fundamentos-db.png',
     date: '2023',
-    description: 'Expert-level React development and best practices'
+    certification: 'https://drive.google.com/file/d/1d_-QHEbywn7VIDdjP1a8p2y9EHmnH3x8/view?usp=sharing',
+    icon: 'database'
   },
   {
-    title: 'Python Professional',
-    image: 'https://placehold.co/300x200',
+    title: 'Introduction to the terminal and command lines',
+    image: 'https://ik.imagekit.io/0vmz5iv95b/introduccion-linea-comandos.png',
     date: '2022',
-    description: 'Professional certification in Python programming'
-  },
-  {
-    title: 'MongoDB Developer',
-    image: 'https://placehold.co/300x200',
-    date: '2022',
-    description: 'Advanced database design and MongoDB development'
-  },
-  {
-    title: 'Google Cloud Architect',
-    image: 'https://placehold.co/300x200',
-    date: '2022',
-    description: 'Professional certification in Google Cloud architecture'
-  },
-  {
-    title: 'Kubernetes Administrator',
-    image: 'https://placehold.co/300x200',
-    date: '2021',
-    description: 'Expert-level Kubernetes administration and orchestration'
+    certification: 'https://drive.google.com/file/d/1TjFxqZd7AJmr_s_kZmi9ZxlurZ27g7F7/view?usp=sharing',
+    icon: 'shell'
   }
 ];
 ---
@@ -44,20 +72,37 @@ const allCertifications = [
 <Layout title="All Certifications">
   <main class="py-20">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl font-bold text-white mb-12 text-center">All Certifications</h1>
+      <h1 class="text-4xl font-bold text-white mb-12 text-center flex items-center justify-center gap-3">
+        <Icon name="certificate" class="w-10 h-10" />
+        All Certifications
+      </h1>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {allCertifications.map(cert => (
           <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:transform hover:scale-105 transition-transform duration-300">
-            <img 
-              src={cert.image} 
-              alt={cert.title}
-              class="w-full h-48 object-cover"
-            />
+            <div class="relative">
+              <img 
+                src={cert.image} 
+                alt={cert.title}
+                class="w-full h-48 object-cover"
+              />
+              <div class="absolute top-4 right-4 bg-gray-900/80 p-2 rounded-full">
+                <Icon name={cert.icon} class="w-6 h-6 text-white" />
+              </div>
+            </div>
             <div class="p-6">
               <h3 class="text-xl font-semibold text-white mb-2">{cert.title}</h3>
-              <p class="text-gray-400 mb-2">{cert.date}</p>
-              <p class="text-gray-300">{cert.description}</p>
+              <p class="text-gray-400 flex items-center gap-2 mb-2">
+                <Icon name="calendar" class="w-5 h-5" />
+                {cert.date}
+              </p>
+              <a 
+                href={cert.certification}
+                target="_blank"
+                class="inline-block bg-blue-600 text-white mt-3 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                View Certification
+              </a>
             </div>
           </div>
         ))}
